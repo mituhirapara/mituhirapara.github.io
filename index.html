@@ -1,6 +1,36 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+	  	<!--reCaptcha v2 Checkbox-->
+<script>
+    var prefix;
+    var verifyCallback = function(token) {
+        var message = prefix + 'success';
+        window.parent.document.dispatchEvent(new CustomEvent('grecaptchaVerified', {detail: {response: token, message: message}}));
+    };
+    var expireCallback = function() {
+        var message = prefix + 'expire';
+        window.parent.document.dispatchEvent(new CustomEvent('grecaptchaExpired', {detail: {message: message}}));
+    };
+    var errorCallback = function() {
+        var message = prefix + 'error';
+        window.parent.document.dispatchEvent(new CustomEvent('grecaptchaError', {detail: {message: message}}));
+    };
+    document.addEventListener('grecaptchaRender', function(e) {
+        prefix = e.detail.prefix;
+        prefix = prefix ? prefix : '';
+        grecaptcha.render(e.detail.element, {
+            'sitekey': 'ENTER_YOUR_SITEKEY',
+            'callback': verifyCallback,
+            'expired-callback': expireCallback,
+            'error-callback': errorCallback
+        });   
+    });
+    document.addEventListener('grecaptchaReset', function() {
+        grecaptcha.reset();
+    }); 
+</script>
+<script src='https://www.google.com/recaptcha/api.js?render=explicit' async defer></script>
   </head>
   <body>
    <script type='text/javascript'>
