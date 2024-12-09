@@ -20,10 +20,8 @@
 			console.error('Error loading Embedded Messaging: ', err);
 		}
 	};
-</script>
-<script type='text/javascript' src='https://hselive--dev1.sandbox.my.site.com/ESWWebChatinGitHub1733641875443/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
-<script src='https://www.google.com/recaptcha/api.js?onload=recaptchaCallback&render=explicit' async defer></script>
-<script>
+//------------------------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------------------
     var prefix;
     var verifyCallback = function(token) {
         var message = prefix + 'success';
@@ -38,6 +36,7 @@
         window.parent.document.dispatchEvent(new CustomEvent('grecaptchaError', {detail: {message: message}}));
     };
     document.addEventListener('grecaptchaRender', function(e) {
+	console.warn('@@ inside grecaptchaRender @@ ');
         prefix = e.detail.prefix;
         prefix = prefix ? prefix : '';
         grecaptcha.render(e.detail.element, {
@@ -47,18 +46,11 @@
             'error-callback': errorCallback
         });   
     });
-     var recaptchaElement = document.getElementsByClassName("recaptcha");
-    function recaptchaCallback() {
-	    grecaptcha.render(recaptchaElement, {
-            'sitekey': '6Lcqq5UqAAAAANNvEXMdsDWlzEanS-jAwxdLD36y',
-            'callback': verifyCallback,
-            'expired-callback': expireCallback,
-            'error-callback': errorCallback
-        });
-    }
     document.addEventListener('grecaptchaReset', function() {
         grecaptcha.reset();
     }); 
 </script>
+<script type='text/javascript' src='https://hselive--dev1.sandbox.my.site.com/ESWWebChatinGitHub1733641875443/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+<script src='https://www.google.com/recaptcha/api.js?onload=recaptchaCallback&render=explicit' async defer></script>
   </body>
 </html>
