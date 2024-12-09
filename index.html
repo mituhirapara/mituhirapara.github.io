@@ -47,8 +47,9 @@
             'error-callback': errorCallback
         });   
     });
+     var recaptchaElement = document.getElementsByClassName("recaptcha");
     function recaptchaCallback() {
-	    grecaptcha.render("recaptcha", {
+	    grecaptcha.render(recaptchaElement, {
             'sitekey': '6Lcqq5UqAAAAANNvEXMdsDWlzEanS-jAwxdLD36y',
             'callback': verifyCallback,
             'expired-callback': expireCallback,
