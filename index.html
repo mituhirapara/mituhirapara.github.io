@@ -22,6 +22,7 @@
 	};
 </script>
 <script type='text/javascript' src='https://hselive--dev1.sandbox.my.site.com/ESWWebChatinGitHub1733641875443/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+<script src='https://www.google.com/recaptcha/api.js?onload=recaptchaCallback&render=explicit' async defer></script>
 <script>
     var prefix;
     var verifyCallback = function(token) {
@@ -46,10 +47,17 @@
             'error-callback': errorCallback
         });   
     });
+    function recaptchaCallback() {
+	    grecaptcha.render("recaptcha", {
+            'sitekey': '6Lcqq5UqAAAAANNvEXMdsDWlzEanS-jAwxdLD36y',
+            'callback': verifyCallback,
+            'expired-callback': expireCallback,
+            'error-callback': errorCallback
+        });
+    }
     document.addEventListener('grecaptchaReset', function() {
         grecaptcha.reset();
     }); 
 </script>
-<script src='https://www.google.com/recaptcha/api.js?render=explicit' async defer></script>
   </body>
 </html>
