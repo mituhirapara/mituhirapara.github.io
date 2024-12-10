@@ -1,27 +1,8 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  </head>
-  <body>
-   <script type='text/javascript'>
-	function initEmbeddedMessaging() {
-		try {
-			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-
-			embeddedservice_bootstrap.init(
-				'00DS8000004uZf9',
-				'Web_Chat_in_GitHub',
-				'https://hselive--dev1.sandbox.my.site.com/ESWWebChatinGitHub1733641875443',
-				{
-					scrt2URL: 'https://hselive--dev1.sandbox.my.salesforce-scrt.com'
-				}
-			);
-		} catch (err) {
-			console.error('Error loading Embedded Messaging: ', err);
-		}
-	};
-//------------------------------------------------------------------------------------------------------------------------------------
-//------------------------------------------------------------------------------------------------------------------------------------
+    <script>
+    //------------------------------------------------------------------------------------------------------------------------------------
     var prefix;
     var verifyCallback = function(token) {
         var message = prefix + 'success';
@@ -49,8 +30,37 @@
     document.addEventListener('grecaptchaReset', function() {
         grecaptcha.reset();
     }); 
+ </script>
+<script src='https://www.google.com/recaptcha/api.js?render=explicit' async defer></script>
+  </head>
+  <body>
+
+ <form action="?" method="POST">
+      <div class="g-recaptcha" data-sitekey="your_site_key"></div>
+      <br/>
+      <input type="submit" value="Submit">
+</form>
+
+	  
+   <script type='text/javascript'>
+	function initEmbeddedMessaging() {
+		try {
+			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+
+			embeddedservice_bootstrap.init(
+				'00DS8000004uZf9',
+				'Web_Chat_in_GitHub',
+				'https://hselive--dev1.sandbox.my.site.com/ESWWebChatinGitHub1733641875443',
+				{
+					scrt2URL: 'https://hselive--dev1.sandbox.my.salesforce-scrt.com'
+				}
+			);
+		} catch (err) {
+			console.error('Error loading Embedded Messaging: ', err);
+		}
+	};
+//------------------------------------------------------------------------------------------------------------------------------------
 </script>
 <script type='text/javascript' src='https://hselive--dev1.sandbox.my.site.com/ESWWebChatinGitHub1733641875443/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
-<script src='https://www.google.com/recaptcha/api.js?render=explicit' async defer></script>
   </body>
 </html>
