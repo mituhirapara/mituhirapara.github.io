@@ -22,9 +22,9 @@
         prefix = prefix ? prefix : '';
         grecaptcha.render(e.detail.element, {
             sitekey: "6Lcqq5UqAAAAANNvEXMdsDWlzEanS-jAwxdLD36y",
-            callback: verifyCallback,
-            "expired-callback": expireCallback,
-            "error-callback": errorCallback
+            // callback: verifyCallback,
+            // "expired-callback": expireCallback,
+            // "error-callback": errorCallback
         });   
     });
     document.addEventListener('grecaptchaReset', function() {
