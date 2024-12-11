@@ -1,39 +1,80 @@
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-    <script>
-    //------------------------------------------------------------------------------------------------------------------------------------
-    var prefix;
-    var verifyCallback = function(token) {
-        var message = prefix + 'success';
-        window.parent.document.dispatchEvent(new CustomEvent('grecaptchaVerified', {detail: {response: token, message: message}}));
-    };
-    var expireCallback = function() {
-        var message = prefix + 'expire';
-        window.parent.document.dispatchEvent(new CustomEvent('grecaptchaExpired', {detail: {message: message}}));
-    };
-    var errorCallback = function() {
-        var message = prefix + 'error';
-        window.parent.document.dispatchEvent(new CustomEvent('grecaptchaError', {detail: {message: message}}));
-    };
-    document.addEventListener('grecaptchaRender', function(e) {
-	console.warn('@@ inside grecaptchaRender @@ ');
-        prefix = e.detail.prefix;
-        prefix = prefix ? prefix : '';
-        grecaptcha.render(e.detail.element, {
-            sitekey: "6Lcqq5UqAAAAANNvEXMdsDWlzEanS-jAwxdLD36y",
-            // callback: verifyCallback,
-            // "expired-callback": expireCallback,
-            // "error-callback": errorCallback
-        });   
-    });
-    document.addEventListener('grecaptchaReset', function() {
-        grecaptcha.reset();
-    }); 
- </script>
-<script src='https://www.google.com/recaptcha/api.js?render=explicit' async defer></script>
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+	<script src="https://www.google.com/recaptcha/api.js"></script>
+	<script>
+	  function timestamp() {
+	    var response = document.getElementById("g-recaptcha-response");
+	    if (response == null || response.value.trim() == "") {
+	      var elems = JSON.parse(
+	        document.getElementsByName("captcha_settings")[0].value
+	      );
+	      elems["ts"] = JSON.stringify(new Date().getTime());
+	      document.getElementsByName("captcha_settings")[0].value =
+	        JSON.stringify(elems);
+	    }
+	  }
+	  setInterval(timestamp, 500);
+	</script>
+	<script src='https://www.google.com/recaptcha/api.js?render=explicit' async defer></script>
   </head>
-  <body>	  
+  <body>
+	<!--  ----------------------------------------------------------------------  -->
+	<!--  NOTE: Please add the following <FORM> element to your page.             -->
+	<!--  ----------------------------------------------------------------------  -->
+
+<form
+  action="https://hselive--dev1.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00DS8000004uZf9"
+  method="POST"
+>
+  <input type="hidden" name="captcha_settings"
+  value={"keyname":"HSELive2","fallback":"true","orgId":"00DS8000004uZf9","ts":""}
+  />
+  <input type="hidden" name="orgid" value="00DS8000004uZf9" />
+  <input type="hidden" name="retURL" value="https://www.hse.ie" />
+  <input type="hidden" id="subject" name="subject" value="WTC02 57587447544" />
+  <input type="hidden" name="debug" value="0" />
+  <input
+    type="hidden"
+    name="debugEmail"
+    value="mpurushottamhirap@deloitte.com"
+  />
+
+  <!--  ----------------------------------------------------------------------  -->
+  <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+  <!--  these lines if you wish to test in debug mode.                          -->
+  <!--  <input type="hidden" name="debug" value=1>                              -->
+  <!--  <input type="hidden" name="debugEmail"                                  -->
+  <!--  value="mpurushottamhirap@deloitte.com">                                 -->
+  <!--  ----------------------------------------------------------------------  -->
+
+  <label for="name">Contact Name</label
+  ><input id="name" maxlength="80" name="name" size="20" type="text" /><br />
+
+  <label for="email">Email</label
+  ><input id="email" maxlength="80" name="email" size="20" type="text" /><br />
+
+  <label for="phone">Phone</label
+  ><input id="phone" maxlength="40" name="phone" size="20" type="text" /><br />
+
+  <!-- <label for="subject">Subject</label> -->
+  <!-- <input id="subject" maxlength="80" name="subject" size="20" type="text" /><br /> -->
+
+  <label for="description">Description</label
+  ><textarea name="description"></textarea><br />
+
+  <div
+    class="g-recaptcha"
+    data-sitekey="6Lcqq5UqAAAAANNvEXMdsDWlzEanS-jAwxdLD36y"
+  ></div>
+  <br />
+  <input type="submit" name="submit" />
+</form>
+
+
+
+
+	  
    <script type='text/javascript'>
 	function initEmbeddedMessaging() {
 		try {
