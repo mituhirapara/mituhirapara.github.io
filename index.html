@@ -28,39 +28,6 @@
       setInterval(timestamp, 500);
     </script>
 -->
-
-	  	<!--reCaptcha v2 Checkbox-->
-<script>
-    var prefix;
-    var verifyCallback = function(token) {
-        var message = prefix + 'success';
-        window.parent.document.dispatchEvent(new CustomEvent('grecaptchaVerified', {detail: {response: token, message: message}}));
-    };
-    var expireCallback = function() {
-        var message = prefix + 'expire';
-        window.parent.document.dispatchEvent(new CustomEvent('grecaptchaExpired', {detail: {message: message}}));
-    };
-    var errorCallback = function() {
-        var message = prefix + 'error';
-        window.parent.document.dispatchEvent(new CustomEvent('grecaptchaError', {detail: {message: message}}));
-    };
-    window.addEventListener('grecaptchaRender', function(e) {
-	console.log('@@ inside grecaptchaRender @@ ', e);
-	if(e == null || e.detail == null) return;
-        prefix = e.detail.prefix;
-        prefix = prefix ? prefix : '';
-        grecaptcha.render(e.detail.element, {
-            'sitekey': '6LeCY6IqAAAAAFNti8WhT5ZZxuUphhlrRUNTgp3Z',
-            'callback': verifyCallback,
-            'expired-callback': expireCallback,
-            'error-callback': errorCallback
-        });   
-    });
-    document.addEventListener('grecaptchaReset', function() {
-        grecaptcha.reset();
-    }); 
-</script>
-<script src='https://www.google.com/recaptcha/api.js?render=explicit' async defer></script>
   </head>
   <body>
     <div class="container">
