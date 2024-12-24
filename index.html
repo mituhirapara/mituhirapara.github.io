@@ -59,7 +59,7 @@
     }); 
 	
    window.addEventListener('message', function(event) {
-    console.log("Message received from the child: " + event.data); // Message received from child
+    console.log("Message received from the child: " + JSON.stringify(event.data)); // Message received from child 
 	   grecaptcha.render(event.data, {
             'sitekey': '6LeCY6IqAAAAAFNti8WhT5ZZxuUphhlrRUNTgp3Z'
         });  
