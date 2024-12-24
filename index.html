@@ -44,7 +44,9 @@
         var message = prefix + 'error';
         window.parent.document.dispatchEvent(new CustomEvent('grecaptchaError', {detail: {message: message}}));
     };
-    document.addEventListener('grecaptchaRender', function(e) {
+    window.addEventListener('grecaptchaRender', function(e) {
+	console.log('@@ inside grecaptchaRender @@ ', e);
+	if(e == null || e.detail == null) return;
         prefix = e.detail.prefix;
         prefix = prefix ? prefix : '';
         grecaptcha.render(e.detail.element, {
@@ -57,13 +59,6 @@
     document.addEventListener('grecaptchaReset', function() {
         grecaptcha.reset();
     }); 
-	
-   window.addEventListener('message', function(event) {
-    console.log("Message received from the child: " + JSON.stringify(event.data)); // Message received from child 
-	   grecaptcha.render(event.data, {
-            'sitekey': '6LeCY6IqAAAAAFNti8WhT5ZZxuUphhlrRUNTgp3Z'
-        });  
-  });
 </script>
 <script src='https://www.google.com/recaptcha/api.js?render=explicit' async defer></script>
   </head>
