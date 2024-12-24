@@ -12,7 +12,7 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <!--<script src="https://www.google.com/recaptcha/api.js"></script>
     <script>
       function timestamp() {
         var response = document.getElementById("g-recaptcha-response");
@@ -27,6 +27,7 @@
       }
       setInterval(timestamp, 500);
     </script>
+-->
 
 	  	<!--reCaptcha v2 Checkbox-->
 <script>
@@ -56,6 +57,13 @@
     document.addEventListener('grecaptchaReset', function() {
         grecaptcha.reset();
     }); 
+	
+   window.addEventListener('message', function(event) {
+    console.log("Message received from the child: " + event.data); // Message received from child
+	   grecaptcha.render(event.data, {
+            'sitekey': '6LeCY6IqAAAAAFNti8WhT5ZZxuUphhlrRUNTgp3Z'
+        });  
+  });
 </script>
 <script src='https://www.google.com/recaptcha/api.js?render=explicit' async defer></script>
   </head>
