@@ -28,6 +28,7 @@
       setInterval(timestamp, 500);
     </script>
 -->
+
   </head>
   <body>
     <div class="container">
@@ -126,6 +127,36 @@
 	};
 </script>
 <script type='text/javascript' src='https://mituhirapara01-dev-ed.my.site.com/ESWWebChatinGithub1734805283392/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
-	  <script src="https://www.google.com/recaptcha/api.js"></script>
     </body>
+<script>
+    var prefix;
+    var verifyCallback = function(token) {
+        var message = prefix + 'success';
+        window.parent.document.dispatchEvent(new CustomEvent('grecaptchaVerified', {detail: {response: token, message: message}}));
+    };
+    var expireCallback = function() {
+        var message = prefix + 'expire';
+        window.parent.document.dispatchEvent(new CustomEvent('grecaptchaExpired', {detail: {message: message}}));
+    };
+    var errorCallback = function() {
+        var message = prefix + 'error';
+        window.parent.document.dispatchEvent(new CustomEvent('grecaptchaError', {detail: {message: message}}));
+    };
+		  
+    document.addEventListener('grecaptchaRender', function(e) {
+	console.error('listening on github script tag');
+        prefix = e.detail.prefix;
+        prefix = prefix ? prefix : '';
+        grecaptcha.render(e.detail.element, {
+            'sitekey': '6Lcqq5UqAAAAANNvEXMdsDWlzEanS-jAwxdLD36y',
+            'callback': verifyCallback,
+            'expired-callback': expireCallback,
+            'error-callback': errorCallback
+        });   
+    });
+    document.addEventListener('grecaptchaReset', function() {
+        grecaptcha.reset();
+    }); 
+</script>
+<script src='https://www.google.com/recaptcha/api.js?render=explicit' async defer></script>
 </html>
