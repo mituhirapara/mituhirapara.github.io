@@ -12,22 +12,20 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    <!--<script src="https://www.google.com/recaptcha/api.js"></script>
-    <script>
-      function timestamp() {
-        var response = document.getElementById("g-recaptcha-response");
-        if (response == null || response.value.trim() == "") {
-          var elems = JSON.parse(
-            document.getElementsByName("captcha_settings")[0].value
-          );
-          elems["ts"] = JSON.stringify(new Date().getTime());
-          document.getElementsByName("captcha_settings")[0].value =
-            JSON.stringify(elems);
-        }
-      }
-      setInterval(timestamp, 500);
-    </script>
--->
+<script>
+  function timestamp() {
+    var response = document.getElementById("g-recaptcha-response");
+    if (response == null || response.value.trim() == "") {
+      var elems = JSON.parse(
+        document.getElementsByName("captcha_settings")[0].value
+      );
+      elems["ts"] = JSON.stringify(new Date().getTime());
+      document.getElementsByName("captcha_settings")[0].value =
+        JSON.stringify(elems);
+    }
+  }
+  setInterval(timestamp, 500);
+</script>
 
   </head>
   <body>
@@ -36,76 +34,57 @@
       <!--  NOTE: Please add the following <FORM> element to your page.             -->
       <!--  ----------------------------------------------------------------------  -->
 
-      <form
-        action="https://hselive--dev1.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00DS8000004uZf9"
-        method="POST"
-      >
-        <input type="hidden" name="captcha_settings"
-        value={"keyname":"HSELive2","fallback":"true","orgId":"00DS8000004uZf9","ts":""}
-        />
-        <input type="hidden" name="orgid" value="00DS8000004uZf9" />
-        <input type="hidden" name="retURL" value="https://www.hse.ie" />
-        <input
-          type="hidden"
-          id="subject"
-          name="subject"
-          value="WTC11 57587447544_test"
-        />
-        <input type="hidden" name="debug" value="0" />
-        <input
-          type="hidden"
-          name="debugEmail"
-          value="mpurushottamhirap@deloitte.com"
-        />
+<form
+  action="https://hselive--dev2.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00DS8000006BiMV"
+  method="POST"
+>
+  <input
+    type="hidden"
+    name="captcha_settings"
+    value='{"keyname":"HSE_ReCaptcha","fallback":"true","orgId":"00DS8000006BiMV","ts":""}'
+  />
+  <input type="hidden" name="orgid" value="00DS8000006BiMV" />
+  <input type="hidden" name="retURL" value="http://google.com" />
 
-        <!--  ----------------------------------------------------------------------  -->
-        <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
-        <!--  these lines if you wish to test in debug mode.                          -->
-        <!--  <input type="hidden" name="debug" value=1>                              -->
-        <!--  <input type="hidden" name="debugEmail"                                  -->
-        <!--  value="mpurushottamhirap@deloitte.com">                                 -->
-        <!--  ----------------------------------------------------------------------  -->
+  <!--  ----------------------------------------------------------------------  -->
+  <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+  <!--  these lines if you wish to test in debug mode.                          -->
+  <!--  <input type="hidden" name="debug" value=1>                              -->
+  <!--  <input type="hidden" name="debugEmail"                                  -->
+  <!--  value="mituhirapara01@gmail.com">                                       -->
+  <!--  ----------------------------------------------------------------------  -->
 
-        <label for="name" class="form-label">Contact Name</label
-        ><input
-          id="name"
-          maxlength="80"
-          name="name"
-          size="20"
-          type="text"
-          class="form-control"
-        /><br />
+  <label for="name">Contact Name</label
+  ><input id="name" maxlength="80" name="name" size="20" type="text" /><br />
 
-        <label for="email" class="form-label">Email</label
-        ><input
-          id="email"
-          maxlength="80"
-          name="email"
-          size="20"
-          type="text"
-          class="form-control"
-        /><br />
+  <label for="email">Email</label
+  ><input id="email" maxlength="80" name="email" size="20" type="text" /><br />
 
-        <label for="phone" class="form-label">Phone</label
-        ><input
-          id="phone"
-          maxlength="40"
-          name="phone"
-          size="20"
-          type="text"
-          class="form-control"
-        /><br />
+  <label for="phone">Phone</label
+  ><input id="phone" maxlength="40" name="phone" size="20" type="text" /><br />
 
-        <label for="description" class="form-label">Description</label
-        ><textarea name="description" class="form-control"></textarea><br />
+  <label for="subject">Subject</label
+  ><input
+    id="subject"
+    maxlength="80"
+    name="subject"
+    size="20"
+    type="hidden"
+    value="WTC11 MDBEUzgwMDAwMDZCaU1WV1RDMTExMDAyMjAyNQ=="
+  /><br />
 
-        <div
-          class="g-recaptcha"
-          data-sitekey="6Lcqq5UqAAAAANNvEXMdsDWlzEanS-jAwxdLD36y"
-        ></div>
-        <br />
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
+  <label for="description">Description</label
+  ><textarea name="description"></textarea><br />
+
+  <input type="hidden" id="external" name="external" value="1" /><br />
+
+  <div
+    class="g-recaptcha"
+    data-sitekey="6LeCY6IqAAAAAFNti8WhT5ZZxuUphhlrRUNTgp3Z"
+  ></div>
+  <br />
+  <input type="submit" name="submit" />
+</form>
     </div>
 <script type='text/javascript'>
 	function initEmbeddedMessaging() {
