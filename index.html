@@ -1,17 +1,12 @@
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
+<!--  If necessary, please modify the charset parameter to specify the        -->
+<!--  character set of your HTML page.                                        -->
+<!--  ----------------------------------------------------------------------  -->
 <html>
-  <head>
-    <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+<script src="https://www.google.com/recaptcha/api.js"></script>
 <script>
   function timestamp() {
     var response = document.getElementById("g-recaptcha-response");
@@ -26,14 +21,12 @@
   }
   setInterval(timestamp, 500);
 </script>
+</head>
 
-  </head>
-  <body>
-    <div class="container">
-      <!--  ----------------------------------------------------------------------  -->
-      <!--  NOTE: Please add the following <FORM> element to your page.             -->
-      <!--  ----------------------------------------------------------------------  -->
-
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <FORM> element to your page.             -->
+<!--  ----------------------------------------------------------------------  -->
+<body>
 <form
   action="https://hselive--dev2.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00DS8000006BiMV"
   method="POST"
@@ -45,8 +38,6 @@
   />
   <input type="hidden" name="orgid" value="00DS8000006BiMV" />
   <input type="hidden" name="retURL" value="http://google.com" />
-	<input type="hidden" name="debug" value=1>
-  <input type="hidden" name="debugEmail" value="mituhirapara01@gmail.com"> 
 
   <!--  ----------------------------------------------------------------------  -->
   <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
@@ -87,26 +78,5 @@
   <br />
   <input type="submit" name="submit" />
 </form>
-    </div>
-<!--<script type='text/javascript'>
-	function initEmbeddedMessaging() {
-		try {
-			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-
-			embeddedservice_bootstrap.init(
-				'00DS8000006BiMV',
-				'HAP_Web_Chat',
-				'https://hselive--dev2.sandbox.my.site.com/ESWHAPWebChat1735888031032',
-				{
-					scrt2URL: 'https://hselive--dev2.sandbox.my.salesforce-scrt.com'
-				}
-			);
-		} catch (err) {
-			console.error('Error loading Embedded Messaging: ', err);
-		}
-	};
-</script>
-<script type='text/javascript' src='https://hselive--dev2.sandbox.my.site.com/ESWHAPWebChat1735888031032/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
--->
-    </body>
+</body>
 </html>
