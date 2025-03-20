@@ -1,130 +1,27 @@
-<!--  ----------------------------------------------------------------------  -->
-<!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
-<!--  If necessary, please modify the charset parameter to specify the        -->
-<!--  character set of your HTML page.                                        -->
-<!--  ----------------------------------------------------------------------  -->
 <html>
-<head>
-<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
-<script src="https://www.google.com/recaptcha/api.js"></script>
-<script>
-  function timestamp() {
-    var response = document.getElementById("g-recaptcha-response");
-    if (response == null || response.value.trim() == "") {
-      var elems = JSON.parse(
-        document.getElementsByName("captcha_settings")[0].value
-      );
-      elems["ts"] = JSON.stringify(new Date().getTime());
-      document.getElementsByName("captcha_settings")[0].value =
-        JSON.stringify(elems);
-    }
-  }
-  setInterval(timestamp, 500);
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  </head>
+  <body>
+    <script type='text/javascript'>
+	function initEmbeddedMessaging() {
+		try {
+			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+
+			embeddedservice_bootstrap.init(
+				'00DS8000006BiMV',
+				'Web_Chat_in_github',
+				'https://hselive--dev2.sandbox.my.site.com/ESWWebChatingithub1742470930155',
+				{
+					scrt2URL: 'https://hselive--dev2.sandbox.my.salesforce-scrt.com'
+				}
+			);
+		} catch (err) {
+			console.error('Error loading Embedded Messaging: ', err);
+		}
+	};
 </script>
-</head>
+<script type='text/javascript' src='https://hselive--dev2.sandbox.my.site.com/ESWWebChatingithub1742470930155/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 
-<!--  ----------------------------------------------------------------------  -->
-<!--  NOTE: Please add the following <FORM> element to your page.             -->
-<!--  ----------------------------------------------------------------------  -->
-<body>
-<!--<form
-  action="https://hselive--dev2.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00DS8000006BiMV"
-  method="POST"
->
-  <input
-    type="hidden"
-    name="captcha_settings"
-    value='{"keyname":"HSE_ReCaptcha","fallback":"true","orgId":"00DS8000006BiMV","ts":""}'
-  />
-  <input type="hidden" name="orgid" value="00DS8000006BiMV" />
-  <input type="hidden" name="retURL" value="http://google.com" />
--->
-  <!--  ----------------------------------------------------------------------  -->
-  <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
-  <!--  these lines if you wish to test in debug mode.                          -->
-  <!--  <input type="hidden" name="debug" value=1>                              -->
-  <!--  <input type="hidden" name="debugEmail"                                  -->
-  <!--  value="mituhirapara01@gmail.com">                                       -->
-  <!--  ----------------------------------------------------------------------  -->
-
-  <!--
-  <label for="name">Contact Name</label
-  ><input id="name" maxlength="80" name="name" size="20" type="text" /><br />
-
-  <label for="email">Email</label
-  ><input id="email" maxlength="80" name="email" size="20" type="text" /><br />
-
-  <label for="phone">Phone</label
-  ><input id="phone" maxlength="40" name="phone" size="20" type="text" /><br />
-
-  <label for="subject">Subject</label
-  ><input
-    id="subject"
-    maxlength="80"
-    name="subject"
-    size="20"
-    type="hidden"
-    value="WTC11 MDBEUzgwMDAwMDZCaU1WV1RDMTExMTAyMjAyNQ=="
-  /><br />
-
-  <label for="description">Description</label
-  ><textarea name="description"></textarea><br />
-
-  <input type="hidden" id="external" name="external" value="1" /><br />
-
-  <div
-    class="g-recaptcha"
-    data-sitekey="6LeCY6IqAAAAAFNti8WhT5ZZxuUphhlrRUNTgp3Z"
-  ></div>
-  <br />
-  <input type="submit" name="submit" />
-</form>
-  -->
-
-  
-<!--  ----------------------------------------------------------------------  -->
-<!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
-<!--  If necessary, please modify the charset parameter to specify the        -->
-<!--  character set of your HTML page.                                        -->
-<!--  ----------------------------------------------------------------------  -->
-
-<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
-
-<!--  ----------------------------------------------------------------------  -->
-<!--  NOTE: Please add the following <FORM> element to your page.             -->
-<!--  ----------------------------------------------------------------------  -->
-
-<form action="https://hselive--qa2.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00DS8000006BsUg" method="POST">
-
-<input type=hidden name="orgid" value="00DS8000006BsUg">
-<input type=hidden name="retURL" value="http://google.com">
-
-<!--  ----------------------------------------------------------------------  -->
-<!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
-<!--  these lines if you wish to test in debug mode.                          -->
-<!--  <input type="hidden" name="debug" value=1>                              -->
-<!--  <input type="hidden" name="debugEmail"                                  -->
-<!--  value="mituhirapara01@gmail.com">                                       -->
-<!--  ----------------------------------------------------------------------  -->
-
-<label for="name">Contact Name</label>
-<input  id="name" maxlength="80" name="name" size="20" type="text" /><br>
-
-<label for="email">Email</label>
-<input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
-
-<label for="phone">Phone</label>
-<input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
-
-<label for="subject">Subject</label>
-<input  id="subject" maxlength="80" name="subject" size="20" type="hidden" value="WTC11 MDBEUzgwMDAwMDZCc1VnV1RDMTExMjAyMjAyNQ=="/><br>
-
-<label for="description">Description</label><textarea name="description"></textarea><br>
-
-<input type="hidden"  id="external" name="external" value="1" /><br>
-
-<input type="submit" name="submit">
-
-</form> 
-</body>
+  </body>
 </html>
