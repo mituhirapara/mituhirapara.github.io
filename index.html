@@ -7,6 +7,20 @@
 	function initEmbeddedMessaging() {
 		try {
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+		        window.addEventListener("onEmbeddedMessagingReady", () => 
+		        {
+		            console.log("Received the onEmbeddedMessagingReady event…");
+		
+		            // Send token to Salesforce
+		    
+		            embeddedservice_bootstrap.userVerificationAPI.setIdentityToken
+		            ({
+		            identityTokenType : "JWT", 
+		
+		            //identityToken :"{The JWT token key value that we created in Stage 4}"
+		            identityToken : "eyJraWQiOiJtcHVydXNob3R0YW1oaXJwQGRlbG9pdHRlLmNvbSIsImFsZyI6IlJTMjU2In0.eyJpc3MiOiJ0ZXN0Iiwic3ViIjoidXNlcjEiLCJleHAiOjE3NDI1NDYwODcsImlhdCI6MTc0MjU0MDA4N30.e6WppZSLP9Hqf4XB1uOtpGorvsP0ealngkrMtZx74mn5yBnFMiXdxUqga_v6MA6uy8ae6dpF4y_DuPPXtbEFyBN9qtiminu9KDoPftCm177gyJfeZ7AZvPgemefjyZ5mgGk56HTSTfxPK-aPssgjs38HEA0L7-Psl7bPNdD8W3m7LM8RVjsLGGvbO9kZ-dh8w73QYQwA1_E9MLOp2alpHH5Ax6AFvI00CxEPGujJwtP5a7TVWauIGZPP_IahVdtMO5Etsqg9TPuZF1vlKFhFtzpOGjs0kDB2a9d5yQK4fmZu0JTtejxzXTCUV_jK5YvtCr06SOTUg4vMfIBy1WDPpA"
+		            });
+		        });
 
 			embeddedservice_bootstrap.init(
 				'00DS8000006BiMV',
