@@ -3,11 +3,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 	</head>
 	<body>
-		<script type='text/javascript'>
-	function initEmbeddedMessaging() {
-		try {
-			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-		        window.addEventListener("onEmbeddedMessagingReady", () => 
+		<!--
+			window.addEventListener("onEmbeddedMessagingReady", () => 
 		        {
 		            console.log("Received the onEmbeddedMessagingReady event…");
 		
@@ -21,11 +18,16 @@
 		            identityToken : "eyJraWQiOiJtcHVydXNob3R0YW1oaXJhcEBkZWxvaXR0ZS5jb20iLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJ0ZXN0Iiwic3ViIjoiSUhJXzE2MTQwNzYiLCJleHAiOjE3NDMwOTIwODUsImlhdCI6MTc0MzA4NjA4NX0.stmpSXt7LyQqc-7UstS3lGm_tc7p6B-2lMg16tQDeE38GCuNmnc4SKcHqYghlueAG2EgAA0ti8qTDAtKe8Q0RVChmPYP49sL1DKS0J02QC9acoVBSTUtW09roHGf2nD4QEseP3NwpIksJSYZv8Nlbf3rmUxCORpW6fxU86MhPlHIPoNnccqazIBR3VaxOrJuCnN68lM-g_OrKcENgGdmDDazQvW08f6j037-xYcjlFBHUg9QCzxJUZd0xq0RBR5PRUojltY-6w7MoWPzjdtfe0jUe8NKWZgv0Rhdg_ROVgmhd8BSfkpdNIhTL-Aqf-hVWHM75kzaLST2eNdn4wT0Vg"
 		            });
 		        });
+		-->
+		<script type='text/javascript'>
+	function initEmbeddedMessaging() {
+		try {
+			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
 			embeddedservice_bootstrap.init(
 				'00DS8000006BiMV',
-				'MIAWGithub',
-				'https://hselive--dev2.sandbox.my.site.com/ESWMIAWGithub1742532940644',
+				'HAP_Web_Chat_App',
+				'https://hselive--dev2.sandbox.my.site.com/ESWHAPWebChatApp1742395123634',
 				{
 					scrt2URL: 'https://hselive--dev2.sandbox.my.salesforce-scrt.com'
 				}
@@ -34,6 +36,9 @@
 			console.error('Error loading Embedded Messaging: ', err);
 		}
 	};
+</script>
+<script type='text/javascript' src='https://hselive--dev2.sandbox.my.site.com/ESWHAPWebChatApp1742395123634/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+
 </script>
 <script type='text/javascript' src='https://hselive--dev2.sandbox.my.site.com/ESWMIAWGithub1742532940644/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 
