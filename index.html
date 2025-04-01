@@ -24,6 +24,21 @@
 		try {
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
+			window.addEventListener("onEmbeddedMessagingReady", () => 
+		        {
+		            console.log("Received the onEmbeddedMessagingReady event…");
+		
+		            // Send token to Salesforce
+		    
+		            embeddedservice_bootstrap.userVerificationAPI.setIdentityToken
+		            ({
+		            identityTokenType : "JWT", 
+		
+		            //identityToken :"{The JWT token key value that we created in Stage 4}"
+		            identityToken : "eyJraWQiOiJtcHVydXNob3R0YW1oaXJhcEBkZWxvaXR0ZS5jb20iLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJ0ZXN0Iiwic3ViIjoiSUhJXzE2MTQwNzYiLCJleHAiOjE3NDM1MDA3NzcsImlhdCI6MTc0MzQ5NDc3N30.Zu24yILjGRjJf559RFj605k72NUCh2eqZa_K7SfBKNunqUbw6Xjpo-EfTy9B4yI_ASZKB7ALAQ9umDMQSxW_3bnKcT93iNe-RTtd09DGzYa0Ye5IqlHptPKQFPdpv11DJ5lnn4xIycBD7qGVtlodWPUOuzzMJ_AheCv96-j0fc933en-aczZzR-vy1qoDxz6QEdzfq8HopSzRsz3WZWUqaNFsRcaXiMmFJEPVxtyhRVhLrwRk9DPvhkg6Qj-f_lyZpdCBW_1maI5loxehnxd7WfCT79WnHatqJaWCpWP0yaFwlk-8Esr5SkwiOV11uf4VB84ReELXLw8L8YuonqJRQ"
+		            });
+		        });
+
 			embeddedservice_bootstrap.init(
 				'00DS8000006BiMV',
 				'HAP_Web_Chat_App',
@@ -38,9 +53,6 @@
 	};
 </script>
 <script type='text/javascript' src='https://hselive--dev2.sandbox.my.site.com/ESWHAPWebChatApp1742395123634/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
-
-</script>
-<script type='text/javascript' src='https://hselive--dev2.sandbox.my.site.com/ESWMIAWGithub1742532940644/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 
 	</body>
 </html>
