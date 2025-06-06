@@ -1,58 +1,17 @@
 <html>
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-	</head>
-	<body>
-		<!--
-			window.addEventListener("onEmbeddedMessagingReady", () => 
-		        {
-		            console.log("Received the onEmbeddedMessagingReady event…");
-		
-		            // Send token to Salesforce
-		    
-		            embeddedservice_bootstrap.userVerificationAPI.setIdentityToken
-		            ({
-		            identityTokenType : "JWT", 
-		
-		            //identityToken :"{The JWT token key value that we created in Stage 4}"
-		            identityToken : "eyJraWQiOiJtcHVydXNob3R0YW1oaXJhcEBkZWxvaXR0ZS5jb20iLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJ0ZXN0Iiwic3ViIjoiSUhJXzE2MTQwNzYiLCJleHAiOjE3NDMwOTIwODUsImlhdCI6MTc0MzA4NjA4NX0.stmpSXt7LyQqc-7UstS3lGm_tc7p6B-2lMg16tQDeE38GCuNmnc4SKcHqYghlueAG2EgAA0ti8qTDAtKe8Q0RVChmPYP49sL1DKS0J02QC9acoVBSTUtW09roHGf2nD4QEseP3NwpIksJSYZv8Nlbf3rmUxCORpW6fxU86MhPlHIPoNnccqazIBR3VaxOrJuCnN68lM-g_OrKcENgGdmDDazQvW08f6j037-xYcjlFBHUg9QCzxJUZd0xq0RBR5PRUojltY-6w7MoWPzjdtfe0jUe8NKWZgv0Rhdg_ROVgmhd8BSfkpdNIhTL-Aqf-hVWHM75kzaLST2eNdn4wT0Vg"
-		            });
-		        });
-		-->
-		<script type='text/javascript'>
-	function initEmbeddedMessaging() {
-		try {
-			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-
-			window.addEventListener("onEmbeddedMessagingReady", () => 
-		        {
-		            console.log("Received the onEmbeddedMessagingReady event…");
-		
-		            // Send token to Salesforce
-		    
-		            embeddedservice_bootstrap.userVerificationAPI.setIdentityToken
-		            ({
-		            identityTokenType : "JWT", 
-		
-		            //identityToken :"{The JWT token key value that we created in Stage 4}"
-		            identityToken : "eyJraWQiOiJtcHVydXNob3R0YW1oaXJhcEBkZWxvaXR0ZS5jb20iLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJ0ZXN0Iiwic3ViIjoiSUhJXzE2MTQwNzYiLCJleHAiOjE3NDUyMTkyOTEsImlhdCI6MTc0NDYxNDQ5MX0.Ln7DK_TQlIs_HOZfkilnrvfcN6i1HYko4Gl-HBIAW4aZCupxd1xD1RKV89_eNcy7J3xlgu4CqRR2qKwKOw9Dz8UgdG6kuwG6QoWyHlfzER1qri7p-7prSR-aMuP1YQQJwUrMBSs2ibr5NsN9jk1VMjU4ztrXw-xtKGwstbWw5IcwjibVb-IcZ8CJRFytENZUooehc4uYoHD2vt_9gwB4cFhcqFBpSNs4Gaq8j8fRwoR4yM3jQ82N3dNsPBZiNU_iS4DDrB0TXWOluIC9NE7qJc8JorpRd5aCuqMvvTZZCYHugdaP-3B9aw8swFnLQSBYBE4iUqK914e3LvH8uIJBSg"
-		            });
-		        });
-
-			embeddedservice_bootstrap.init(
-				'00DS8000006BiMV',
-				'HAP_Web_Chat_App',
-				'https://hselive--dev2.sandbox.my.site.com/ESWHAPWebChatApp1742395123634',
-				{
-					scrt2URL: 'https://hselive--dev2.sandbox.my.salesforce-scrt.com'
-				}
-			);
-		} catch (err) {
-			console.error('Error loading Embedded Messaging: ', err);
-		}
-	};
-</script>
-<script type='text/javascript' src='https://hselive--dev2.sandbox.my.site.com/ESWHAPWebChatApp1742395123634/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
-
-	</body>
+   <head>
+      <script src="https://www.google.com/recaptcha/api.js"></script>
+      <script>
+         function onSubmit() {
+		 document.getElementById("myForm").submit()
+	 }    
+      </script>
+   </head>
+   <body>
+      <form id="myForm" action="https://formspree.io/f/{form_id}" method="POST">
+	      <input name="email" type="email">
+	      <button class="g-recaptcha" data-sitekey="reCAPTCHA_site_key"
+		      data-callback='onSubmit' data-action='submit'>Submit</button>
+      </form>
+   </body>
 </html>
