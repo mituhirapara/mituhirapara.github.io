@@ -1,17 +1,17 @@
 <html>
   <head></head>
   <body>
-    <script type='text/javascript'>
+<script type='text/javascript'>
 	function initEmbeddedMessaging() {
 		try {
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
 			embeddedservice_bootstrap.init(
-				'00DS8000004uIkk',
+				'00DS8000006BiMV',
 				'HAP_Web_Chat',
-				'https://hselive--preprod.sandbox.my.site.com/ESWHAPWebChat1749190300357',
+				'https://hselive--dev2.sandbox.my.site.com/ESWHAPWebChat1735888031032',
 				{
-					scrt2URL: 'https://hselive--preprod.sandbox.my.salesforce-scrt.com'
+					scrt2URL: 'https://hselive--dev2.sandbox.my.salesforce-scrt.com'
 				}
 			);
 		} catch (err) {
@@ -19,7 +19,7 @@
 		}
 	};
 </script>
-<script type='text/javascript' src='https://hselive--preprod.sandbox.my.site.com/ESWHAPWebChat1749190300357/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+<script type='text/javascript' src='https://hselive--dev2.sandbox.my.site.com/ESWHAPWebChat1735888031032/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 
   </body>
 </html>
