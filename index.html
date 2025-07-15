@@ -23,10 +23,10 @@
 		              console.log(event.detail);
 		              console.log(event.detail.conversationEntry);
 		              console.log(event.detail.conversationEntry.entryPayload);
-		              let entryPayloyConversation = JSON.parse(event.detail.conversationEntry.entryPayload);
+		              let entryPayloyConversation = JSON.parse(event.detail?.conversationEntry?.entryPayload);
 		              console.log(entryPayloyConversation);
-		              console.log(entryPayloyConversation.entries[0].operation);
-		              if (entryPayloyConversation.entries[0].operation === "remove") {
+		              console.log(entryPayloyConversation?.entries[0]?.operation);
+		              if (entryPayloyConversation?.entries[0]?.operation === "remove") {
 		                console.log("Entrou remove");
 		                embeddedservice_bootstrap.userVerificationAPI
 		                  .clearSession()
